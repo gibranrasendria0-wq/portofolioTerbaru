@@ -44,3 +44,16 @@
 .app-shell[data-theme="light"] .project-visual{background:#673ab7}
 .app-shell[data-theme="light"] .project-visual-fallback{color:#fff}
 .app-shell[data-theme="light"] .project-visual-fallback small{color:#eee5ff}
+
+/* Improve readability in both themes, including small labels and chips. */
+:root{--muted:#c1c9dc;--soft:#d1d8e8}
+:root:has(.app-shell[data-theme="light"]){--muted:#3c4e6b;--soft:#354967;--accent:#174fae;--accent-soft:#e5efff}
+.hero-social,.scroll-cue,.skills-note,.projects-footnote,.project-count,.footer{color:var(--muted)}
+.hero-social a,.floating-chip,.profile-caption span:not(.profile-code),.project-meta,.project-visual-fallback small{color:var(--soft)}
+.skill-tags span,.tag-list span{color:var(--text);font-weight:600}
+.status-pill,.eyebrow,.about-number,.contact-kicker,.project-link,.project-meta{font-weight:700}
+.app-shell[data-theme="light"] .status-pill,.app-shell[data-theme="light"] .button-secondary{color:#174fae}
+.app-shell[data-theme="light"] .theme-toggle,.app-shell[data-theme="light"] .brand-mark,.app-shell[data-theme="light"] .value-icon,.app-shell[data-theme="light"] .skill-icon{color:#174fae}
+.app-shell[data-theme="light"] .project-meta,.app-shell[data-theme="light"] .project-link{color:#174fae}
+.app-shell[data-theme="light"] .skill-tags span,.app-shell[data-theme="light"] .tag-list span{color:#263d60}
+.app-shell[data-theme="dark"] .skill-tags span,.app-shell[data-theme="dark"] .tag-list span{color:#e0e5f3}
