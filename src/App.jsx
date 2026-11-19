@@ -1,18 +1,18 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowDown, ArrowUpRight, Github, Mail, Code2, BookOpen, Rocket, Database, Braces, Wrench, Menu, X, ExternalLink, Sparkles } from 'lucide-react'
+import { ArrowDown, ArrowUpRight, Github, Mail, Code2, BookOpen, Rocket, Database, Braces, Wrench, Menu, X, ExternalLink, Sparkles, Sun, Moon } from 'lucide-react'
 import { profile } from './data/profile'
 import { skillCategories } from './data/skills'
 import { projects } from './data/projects'
 
 const nav = [['Tentang', '#about'], ['Keahlian', '#skills'], ['Project', '#projects'], ['Kontak', '#contact']]
 
-function Navbar() {
+function Navbar({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false)
   return <header className="navbar glass">
     <a className="brand" href="#home"><span className="brand-mark"><Code2 size={18}/></span>GR<span className="accent">.</span></a>
     <nav className={open ? 'nav-links nav-open' : 'nav-links'}>{nav.map(([label, href]) => <a key={href} href={href} onClick={() => setOpen(false)}>{label}</a>)}</nav>
-    <a className="nav-cta" href="#contact">Mari terhubung ↗</a>
+    <div className="nav-actions"><button className="theme-toggle" onClick={onToggleTheme} aria-label={theme === 'dark' ? 'Aktifkan tema terang' : 'Aktifkan tema gelap'} title={theme === 'dark' ? 'Tema terang' : 'Tema gelap'}>{theme === 'dark' ? <Sun size={17}/> : <Moon size={17}/>}<span>{theme === 'dark' ? 'Terang' : 'Gelap'}</span></button><a className="nav-cta" href="#contact">Mari terhubung ↗</a></div>
     <button className="mobile-menu" onClick={() => setOpen(!open)} aria-label="Buka navigasi">{open ? <X/> : <Menu/>}</button>
   </header>
 }
@@ -92,5 +92,13 @@ function Footer() {
 }
 
 export default function App() {
-  return <><div className="ambient ambient-one"/><div className="ambient ambient-two"/><Navbar/><main><Hero/><About/><Skills/><Projects/><Contact/></main><Footer/></>
+  const [theme, setTheme] = useState(() => {
+    try { return localStorage.getItem('portfolio-theme') === 'light' ? 'light' : 'dark' } catch { return 'dark' }
+  })
+  const toggleTheme = () => setTheme(current => {
+    const next = current === 'dark' ? 'light' : 'dark'
+    try { localStorage.setItem('portfolio-theme', next) } catch {}
+    return next
+  })
+  return <div className="app-shell" data-theme={theme}><div className="ambient ambient-one"/><div className="ambient ambient-two"/><Navbar theme={theme} onToggleTheme={toggleTheme}/><main><Hero/><About/><Skills/><Projects/><Contact/></main><Footer/></div>
 }
