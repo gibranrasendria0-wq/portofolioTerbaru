@@ -37,3 +37,10 @@
 .app-shell[data-theme="light"] .project-visual-fallback small{color:#53647f}
 .app-shell[data-theme="light"] .nav-links.nav-open{background:rgba(255,255,255,.97);border-color:var(--border)}
 @media(max-width:640px){.theme-toggle{padding:9px}.theme-toggle span{display:none}.nav-actions{margin-left:auto;margin-right:10px}}
+.ambient,.orbit{display:none!important}
+.button-primary{background:var(--accent);box-shadow:none}
+.profile-image-wrap{background:var(--accent)}
+.project-visual{background:var(--surface-solid)}
+.app-shell[data-theme="light"] .project-visual{background:#673ab7}
+.app-shell[data-theme="light"] .project-visual-fallback{color:#fff}
+.app-shell[data-theme="light"] .project-visual-fallback small{color:#eee5ff}
