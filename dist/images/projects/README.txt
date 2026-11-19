@@ -1,1 +1,0 @@
-Letakkan screenshot asli project di folder ini dengan nama: belajar-mandiri.png, uno-game.png, capsa.png, portfolio.png, cuaca.png, mobile-legends.png, undangan.png, for-you.png, kalkulator.png, mini-game.png. Jika belum ada screenshot, kartu akan menampilkan visual placeholder.
